@@ -14,7 +14,7 @@ namespace BankingTests
         public void WithdrawingMoneyDecreasesTheBalance()
         {
             //Given
-            var account = new BankAccount();
+            var account = new BankAccount(new bonusCalculatorFakeDummy());
             var openingBalance = account.GetBalance();
             var amountToWithdraw = 10M;
 

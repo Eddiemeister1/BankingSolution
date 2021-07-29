@@ -21,7 +21,7 @@ namespace BankingTests
         [Fact]
         public void OverdraftDoesNotDecreaseBalance()
         {
-            var account = new BankAccount();
+            var account = new BankAccount(new bonusCalculatorFakeDummy());
             var openingBalance = account.GetBalance();
 
             try
@@ -42,7 +42,7 @@ namespace BankingTests
         [Fact]
         public void OverDraftThrowsException()
         {
-            var account = new BankAccount();
+            var account = new BankAccount(new bonusCalculatorFakeDummy());
             var openingBalance = account.GetBalance();
 
             Assert.Throws<OverdraftNotAllowedException>(

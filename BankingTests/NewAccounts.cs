@@ -14,7 +14,7 @@ namespace BankingTests
         public void NewAccountsHaveCorrectBalance()
         {
             // Given (arrange)
-            var account = new BankAccount();
+            var account = new BankAccount(new bonusCalculatorFakeDummy());
 
             //When (Act)
             decimal openingBalance = account.GetBalance();
