@@ -2,11 +2,12 @@
 
 namespace BankingDomain
 {
+    public enum AccountType { Standard, Gold}
     public class BankAccount
     {
         private decimal _balance = 5000;
 
-        
+        public AccountType AccountType { get; set; } = AccountType.Standard;
         public decimal GetBalance()
         {
             return _balance;
@@ -16,7 +17,7 @@ namespace BankingDomain
         {
             if(amountToWithdraw >= _balance)
             {
-                //throw new OverdraftNotAllowedException();
+                throw new OverdraftNotAllowedException();
             } else
             {
                 _balance -= amountToWithdraw;
@@ -26,7 +27,12 @@ namespace BankingDomain
 
         public void Deposit(decimal amountToDeposit)
         {
-            _balance += amountToDeposit;
+            var bonus = 0M;
+            if(AccountType == AccountType.Gold)
+            {
+                bonus = amountToDeposit * .10M;
+            }
+            _balance += amountToDeposit + bonus;
         }
     }
 }
