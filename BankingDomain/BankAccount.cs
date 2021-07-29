@@ -2,11 +2,11 @@
 
 namespace BankingDomain
 {
-    public class BankAccount
+    public class BankAccount : ICanWithdrawFundsFromAnAccount
     {
         private decimal _balance = 5000;
         private readonly ICalculateBankAccountBonuses _bonusCalculator;
-        
+
         public BankAccount(ICalculateBankAccountBonuses bonusCalculator)
         {
             _bonusCalculator = bonusCalculator;
@@ -18,10 +18,11 @@ namespace BankingDomain
 
         public void Withdraw(decimal amountToWithdraw)
         {
-            if(amountToWithdraw >= _balance)
+            if (amountToWithdraw >= _balance)
             {
-               throw new OverdraftNotAllowedException();
-            } else
+                throw new OverdraftNotAllowedException();
+            }
+            else
             {
                 _balance -= amountToWithdraw;
             }
