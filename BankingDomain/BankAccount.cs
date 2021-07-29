@@ -28,7 +28,7 @@ namespace BankingDomain
 
         }
 
-        public void Deposit(decimal amountToDeposit)
+        public virtual void Deposit(decimal amountToDeposit)
         {
             //WTCYWYH - "Write the Code You Wish You Had" <---REMEMBER THIS!!! VERY IMPORTANT!!!!
             decimal bonus = _bonusCalculator.GetDepositBonusFor(_balance, amountToDeposit);
