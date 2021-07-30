@@ -28,9 +28,9 @@ namespace BankingTests
             var account = new CertificateOfDepMakingDeposits();
             var processor = new FeeProcessor();
 
-            //processor.ChargeFee(account, 100);
+            processor.ChargeFee(account, 100);
 
-            //Assert.Equal(openingBalance - 100M, 
+            //Assert.Equal(openingBalance - 100M, account.GetBalance());
         }
     }
 }

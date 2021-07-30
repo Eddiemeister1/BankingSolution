@@ -1,9 +1,11 @@
 ﻿namespace BankingDomain
 {
-    public class CertificateOfDepMakingDeposits
+    public class CertificateOfDepMakingDeposits : ICanWithdrawFundsFromAnAccount
     {
-        public CertificateOfDepMakingDeposits()
+
+        public void Withdraw(decimal amountToWithdraw)
         {
+            //take the money out
         }
     }
 }

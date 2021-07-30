@@ -6,5 +6,6 @@
         {
             return (balance >= 10000) ? amountToDeposit * .10M : 0;
         }
+
     }
 }
